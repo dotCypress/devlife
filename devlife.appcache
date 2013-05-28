@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# Cache Manifest Version: 0.3
+# Cache Manifest Version: 0.4
 
 ./css/bootstrap.min.css
 ./css/bootstrap-responsive.min.css
@@ -25,6 +25,7 @@ CACHE MANIFEST
 ./img/touch/apple-touch-icon-precomposed.png
 ./img/glyphicons-halflings.png
 ./img/glyphicons-halflings-white.png
+./img/preview.png
 
 NETWORK:
 *

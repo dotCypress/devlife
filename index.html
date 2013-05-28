@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--[if IEMobile 7 ]>  <html class="no-js iem7" manifest="devlife.appcache"> <![endif]-->
-<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js" manifest="devlife.appcache1"> <!--<![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js" manifest="devlife.appcache"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <title>Жизнь Разработчиков</title>
@@ -59,7 +59,10 @@
               <a data-ng-href="http://developerslife.ru/{{item.id}}"><code><i class="icon-share"></i> #{{item.id}}</code></a>
             </div>
             <p>{{item.description}}</p>
-            <img data-ng-click="url=switchUrl(url, item)" data-ng-init="url=getUrl(item)" data-ng-src="{{url}}"/>
+            <div data-ng-click="isPreview=!isPreview;url=getUrl(isPreview, item)" data-ng-init="isPreview=true;url=getUrl(isPreview, item)">
+              <img data-ng-show="gprsMode && isPreview" style="position: absolute; border: 0;" src="img/preview.png">
+              <img data-ng-src="{{url}}"/>
+            </div>
             <blockquote>
               <small>{{convertDate(item.date) | date:'longDate'}} by <strong>{{item.author}}</strong></small>
             </blockquote>

@@ -30,10 +30,10 @@ function MainCtrl($scope,  Feed) {
   $scope.convertDate = function(date){
     return new Date(date);
   };
-  $scope.getUrl = function(item){
-    return $scope.gprsMode ? item.previewURL : item.gifURL;
+  $scope.getUrl = function(isPreview, item){
+    return $scope.gprsMode && isPreview ? item.previewURL : item.gifURL;
   };
-  $scope.switchUrl = function(current, item){
+  $scope.switchUrl = function(isPreview, item){
     if(!$scope.gprsMode){
       return item.gifURL;
     }
