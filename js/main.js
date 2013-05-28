@@ -33,6 +33,12 @@ function MainCtrl($scope,  Feed) {
   $scope.getUrl = function(item){
     return $scope.gprsMode ? item.previewURL : item.gifURL;
   };
+  $scope.switchUrl = function(current, item){
+    if(!$scope.gprsMode){
+      return item.gifURL;
+    }
+    return current === item.gifURL ? item.previewURL : item.gifURL;
+  };
   $scope.fetchMore = function(){
     $scope.page++;
     Feed.get($scope.mode, $scope.page, function(items) {

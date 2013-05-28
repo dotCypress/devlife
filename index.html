@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--[if IEMobile 7 ]>  <html class="no-js iem7" manifest="devlife.appcache"> <![endif]-->
-<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js" manifest="devlife.appcache"> <!--<![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js" manifest="devlife.appcache1"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <title>Жизнь Разработчиков</title>
@@ -42,7 +42,7 @@
             </ul>
             <div class="pull-right">
               <label class="checkbox">
-                <input type="checkbox" data-ng-model="gprsMode"> Экономный режим
+                <input type="checkbox" data-ng-model="gprsMode"> Превью
               </label>
             </div>
           </div>
@@ -59,7 +59,7 @@
               <a data-ng-href="http://developerslife.ru/{{item.id}}"><code><i class="icon-share"></i> #{{item.id}}</code></a>
             </div>
             <p>{{item.description}}</p>
-            <img data-ng-click="url = item.gifURL" data-ng-init="url=getUrl(item)" data-ng-src="{{url}}"/>
+            <img data-ng-click="url=switchUrl(url, item)" data-ng-init="url=getUrl(item)" data-ng-src="{{url}}"/>
             <blockquote>
               <small>{{convertDate(item.date) | date:'longDate'}} by <strong>{{item.author}}</strong></small>
             </blockquote>
