@@ -40,6 +40,11 @@
               <li><a data-ng-click="switchMode('hot')">Горячие</a></li>
               <li><a data-ng-click="switchMode('top')">Лучшие</a></li>
             </ul>
+            <div class="pull-right">
+              <label class="checkbox">
+                <input type="checkbox" data-ng-model="gprsMode"> Экономный режим
+              </label>
+            </div>
           </div>
         </div>
       </div>
@@ -51,10 +56,10 @@
           <div class="thumbnail item span6" data-ng-repeat="item in items">
             <div>
               <span class="label label-info pull-right"><i class="icon-thumbs-up icon-white"></i> {{item.votes}}</span>
-              <a data-ng-href="http://developerslife.ru/{{item.id}}"><code><i class="icon-share"></i>  #{{item.id}}</code></a>
+              <a data-ng-href="http://developerslife.ru/{{item.id}}"><code><i class="icon-share"></i> #{{item.id}}</code></a>
             </div>
             <p>{{item.description}}</p>
-            <img data-ng-src="{{item.gifURL}}"/>
+            <img data-ng-click="url = item.gifURL" data-ng-init="url=getUrl(item)" data-ng-src="{{url}}"/>
             <blockquote>
               <small>{{convertDate(item.date) | date:'longDate'}} by <strong>{{item.author}}</strong></small>
             </blockquote>

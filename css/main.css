@@ -25,3 +25,7 @@
 .thumbnail.item blockquote{
   margin: 4px 0 0 0;;
 }
+
+.nav-collapse .checkbox{
+  margin-top: 10px !important;
+}

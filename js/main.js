@@ -16,6 +16,7 @@ var names = {
 }
 
 function MainCtrl($scope,  Feed) {
+  $scope.gprsMode = true;
   $scope.switchMode = function(mode){
     if(window.scrollY > 100){
       window.scrollTo(0,0);
@@ -29,6 +30,9 @@ function MainCtrl($scope,  Feed) {
   $scope.convertDate = function(date){
     return new Date(date);
   };
+  $scope.getUrl = function(item){
+    return $scope.gprsMode ? item.previewURL : item.gifURL;
+  };
   $scope.fetchMore = function(){
     $scope.page++;
     Feed.get($scope.mode, $scope.page, function(items) {
@@ -37,4 +41,5 @@ function MainCtrl($scope,  Feed) {
     });
   };
   $scope.switchMode('latest');
+  $scope.$watch('gprsMode', function() { $scope.switchMode($scope.mode)}, true);
 };
