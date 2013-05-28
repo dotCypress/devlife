@@ -1,0 +1,27 @@
+@media (min-width: 979px) {
+  .container > section:first-child{
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 979px){
+  .navbar-fixed-top {
+    margin-bottom: -10px; !important;
+  }
+}
+
+@media (max-width: 767px){
+
+}
+
+.thumbnail.item{
+  margin: 0 3px 3px 0 !important;
+}
+
+.thumbnail.item div{
+  margin: 4px 0 6px 0;
+}
+
+.thumbnail.item blockquote{
+  margin: 4px 0 0 0;;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]>  <html class="no-js iem7" manifest="devlife.appcache"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js" manifest="devlife.appcache"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <title>Жизнь Разработчиков</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+    <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+    <meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#222222">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="DevLife">
+    <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+  </head>
+  <body data-ng-app="devlife" data-ng-controller="MainCtrl">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">Жизнь Разработчиков</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a data-ng-click="switchMode('latest')">Последние</a></li>
+              <li><a data-ng-click="switchMode('hot')">Горячие</a></li>
+              <li><a data-ng-click="switchMode('top')">Лучшие</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <section infinite-scroll="fetchMore()" infinite-scroll-distance="1">
+        <h3 data-ng-bind="title"></h3>
+        <div class="row-fluid" style="display:none" data-ng-show="items">
+          <div class="thumbnail item span6" data-ng-repeat="item in items">
+            <div>
+              <span class="label label-info pull-right"><i class="icon-thumbs-up icon-white"></i> {{item.votes}}</span>
+              <a data-ng-href="http://developerslife.ru/{{item.id}}"><code><i class="icon-share"></i>  #{{item.id}}</code></a>
+            </div>
+            <p>{{item.description}}</p>
+            <img data-ng-src="{{item.gifURL}}"/>
+            <blockquote>
+              <small>{{convertDate(item.date) | date:'longDate'}} by <strong>{{item.author}}</strong></small>
+            </blockquote>
+
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="js/vendor/jquery-2.0.0.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/angular.min.js"></script>
+    <script src="js/vendor/angular-resource.min.js"></script>
+    <script src="js/vendor/ng-infinite-scroll.min.js"></script>
+    <script src="js/helper.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
