@@ -10,10 +10,6 @@
   }
 }
 
-@media (max-width: 767px){
-
-}
-
 .thumbnail.item{
   margin: 0 3px 3px 0 !important;
 }
@@ -28,4 +24,8 @@
 
 .nav-collapse .checkbox{
   margin-top: 10px !important;
+}
+
+.image-wrapper{
+  min-height: 140px;
 }

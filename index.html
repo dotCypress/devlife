@@ -40,11 +40,9 @@
               <li><a data-ng-click="switchMode('hot')">Горячие</a></li>
               <li><a data-ng-click="switchMode('top')">Лучшие</a></li>
             </ul>
-            <div class="pull-right">
-              <label class="checkbox">
-                <input type="checkbox" data-ng-model="gprsMode"> Превью
-              </label>
-            </div>
+            <ul class="nav pull-right">
+              <li><a href="https://github.com/dotCypress/devlife">Fork me on GitHub</a></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -52,6 +50,9 @@
     <div class="container">
       <section infinite-scroll="fetchMore()" infinite-scroll-distance="1" infinite-scroll-disabled="isLoading">
         <h3 data-ng-bind="title"></h3>
+        <label class="checkbox">
+          <input type="checkbox" data-ng-model="gprsMode"> Экономичный режим
+        </label>
         <div class="row-fluid" style="display:none" data-ng-show="items">
           <div class="thumbnail item" data-ng-repeat="item in items">
             <div>
@@ -59,7 +60,7 @@
               <a data-ng-href="http://developerslife.ru/{{item.id}}"><code><i class="icon-share"></i> #{{item.id}}</code></a>
             </div>
             <p>{{item.description}}</p>
-            <div data-ng-click="isPreview=!isPreview;url=getUrl(isPreview, item)" data-ng-init="isPreview=true;url=getUrl(isPreview, item)">
+            <div class="image-wrapper" data-ng-click="isPreview=!isPreview;url=getUrl(isPreview, item)" data-ng-init="isPreview=true;url=getUrl(isPreview, item)">
               <img data-ng-show="gprsMode && isPreview" style="position: absolute; border: 0;" src="img/preview.png">
               <img data-ng-src="{{url}}"/>
             </div>
