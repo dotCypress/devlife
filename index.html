@@ -53,7 +53,7 @@
       <section infinite-scroll="fetchMore()" infinite-scroll-distance="1" infinite-scroll-disabled="isLoading">
         <h3 data-ng-bind="title"></h3>
         <div class="row-fluid" style="display:none" data-ng-show="items">
-          <div class="thumbnail item span6" data-ng-repeat="item in items">
+          <div class="thumbnail item" data-ng-repeat="item in items">
             <div>
               <span class="label label-info pull-right"><i class="icon-thumbs-up icon-white"></i> {{item.votes}}</span>
               <a data-ng-href="http://developerslife.ru/{{item.id}}"><code><i class="icon-share"></i> #{{item.id}}</code></a>
